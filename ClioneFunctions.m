@@ -50,16 +50,6 @@ Xtitles = [
 %zeros(1,Last)];
 %X(:,1) = Xinit;
 
-%derivativeArr = [
-%    Vderivative(t,Xt,1,3,7);
-%    Vderivative(t,Xt,2,4,8);
-%    Rderivative(t,Xt,3,1);
-%    Rderivative(t,Xt,4,2);
-%    Fderivative(t,Xt,5,2);
-%    Fderivative(t,Xt,6,1);
-%    Gderivative(t,Xt,7,5);
-%    Gderivative(t,Xt,8,6)
-%  ];
 function xprime = derivative(Xt,t)
   t = t+1;
   xprime = [
@@ -101,9 +91,12 @@ end
 %for t = 2:Last
 %  X(:,t) = X(:,t-1) + derivative(t-1,X(:,t-1)).*DT;
 %end;
-[TimeOut, X] = lsode(@derivative,Xinit,1)
-
-figure(1), ZA = plot(TimeOut, 100*X(1,:), 'r', TimeOut, 100*X(2,:)-150, 'b-'); set(ZA, 'LineWidth', 2);
+[X,istate,msg] = lsode(@derivative,Xinit,Time);
+istate
+msg
+X = X';
+size(X)
+figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:)-150, 'b-'); set(ZA, 'LineWidth', 2);
 ylabel('V (mV'); xlabel('Time (ms)');
 
 VV = -0.9:0.01:1.5;
