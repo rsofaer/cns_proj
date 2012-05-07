@@ -1,6 +1,4 @@
 % fwd Euler for Clione swimming
-
-function X = ClioneFunctions()
 clear all; hold off;
 
 global DT Final_Time Last Time Tau TauR TauSyn ESyn synThres PIRoff I k;
@@ -18,7 +16,7 @@ PIRoff=0;
 k=9; % inhibitory gain
 dorsalStim=0.5; % stimulus to dorsal neuron
 I=dorsalStim; 
-I = [zeros(1,150)+dorsalStim zeros(1,Last-150)];
+I = [zeros(1,150).+dorsalStim zeros(1,Last-150)];
 I = [I; zeros(1,Last)];
 
 Xinit = [
@@ -32,66 +30,18 @@ Xinit = [
   0; %ventralG
 ];
 
-Xtitles = { 
-'dorsalV'
-'ventralV'
-'dorsalR'
-'ventralR'
-'dorsalF'
-'ventralF'
-'dorsalG'
-'ventralG'};
-%X = [
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)];
-%X(:,1) = Xinit;
+Xtitles = [ 
+"dorsalV"
+"ventralV"
+"dorsalR"
+"ventralR"
+"dorsalF"
+"ventralF"
+"dorsalG"
+"ventralG"];
+X = [Xinit zeros(8,Last-1)];
 
-
-%for t = 2:Last
-%  X(:,t) = X(:,t-1) + derivative(t-1,X(:,t-1)).*DT;
-%end;
-[T,X] = ode45(@derivative,Time,Xinit);
-X = X';
-size(X)
-figure(1), ZA = plot(Time, X(1,:), 'r', Time, X(2,:), 'b-'); set(ZA, 'LineWidth', 2);
-ylabel('V (mV'); xlabel('Time (ms)');
-
-VV = -0.9:0.01:1.5;
-DVdt = -0.5*((1.37 + 3.67*VV + 2.51*VV.^2).*(VV - 0.55) - dorsalStim/13)./(VV + 0.92);
-DRdt = 1.35*VV + 1.03;
-figure(2), ZB = plot(VV, DVdt, 'k-', VV, DRdt, 'b-', X(1,:), X(3,:), 'r-'); axis([-1, 0.6, 0, 1]);
-set(ZB, 'LineWidth', 2); axis square;
-% %Next lines calculate spike rate
-% Spikes = (X(1, 1:Last - 1) < -0.2).*(X(1, 2:Last) >= -0.2);
-% SpkTime = zeros(1, sum(Spikes));
-% Nspk = 1;  %Number of spike
-% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
-% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
-% end;
-% Final = length(SpkTime);
-% Rates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
-% Leng = length(Rates);
-% Red_Rate = mean(Rates(Leng/2:Leng))
-% %Next lines calculate blue spike rate
-% Spikes = (X(3, 1:Last - 1) < -0.2).*(X(3, 2:Last) >= -0.2);
-% SpkTime = zeros(1, sum(Spikes));
-% Nspk = 1;  %Number of spike
-% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
-% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
-% end;
-% Final = length(SpkTime);
-% BRates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
-% Leng = length(BRates);
-% Blue_Rate = mean(BRates(Leng/2:Leng))
-end
-
-function xprime = derivative(t,Xt)
+function xprime = derivative(Xt,t)
   t = t+1;
   xprime = [
     Vderivative(t,Xt,1,3,7);
@@ -128,3 +78,40 @@ function xgprime = Gderivative(t,Xt,G_index, F_index)
   global TauSyn;
   xgprime = (1/TauSyn)*(-Xt(G_index) + Xt(F_index));
 end
+
+for t = 2:Last
+  X(:,t) = X(:,t-1) + derivative(X(:,t-1),t-1).*DT;
+end;
+%[X,istate,msg] = lsode(@derivative,Xinit,Time);
+%X = X';
+size(X)
+figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:)-150, 'b-'); set(ZA, 'LineWidth', 2);
+ylabel('V (mV'); xlabel('Time (ms)');
+
+VV = -0.9:0.01:1.5;
+DVdt = -0.5*((1.37 + 3.67*VV + 2.51*VV.^2).*(VV - 0.55) - dorsalStim/13)./(VV + 0.92);
+DRdt = 1.35*VV + 1.03;
+figure(2), ZB = plot(VV, DVdt, 'k-', VV, DRdt, 'b-', X(1,:), X(3,:), 'r-'); axis([-1, 0.6, 0, 1]);
+set(ZB, 'LineWidth', 2); axis square;
+% %Next lines calculate spike rate
+% Spikes = (X(1, 1:Last - 1) < -0.2).*(X(1, 2:Last) >= -0.2);
+% SpkTime = zeros(1, sum(Spikes));
+% Nspk = 1;  %Number of spike
+% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
+% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
+% end;
+% Final = length(SpkTime);
+% Rates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
+% Leng = length(Rates);
+% Red_Rate = mean(Rates(Leng/2:Leng))
+% %Next lines calculate blue spike rate
+% Spikes = (X(3, 1:Last - 1) < -0.2).*(X(3, 2:Last) >= -0.2);
+% SpkTime = zeros(1, sum(Spikes));
+% Nspk = 1;  %Number of spike
+% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
+% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
+% end;
+% Final = length(SpkTime);
+% BRates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
+% Leng = length(BRates);
+% Blue_Rate = mean(BRates(Leng/2:Leng))
