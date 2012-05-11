@@ -1,10 +1,9 @@
 % fwd Euler for Clione swimming
 
 function X = ClioneFunctions()
-clear all; hold off;
 
 global DT Final_Time Last Time Tau TauR TauSyn ESyn synThres PIRoff I k;
-DT = 0.02;  %Time increment as fraction of time constant
+DT = 0.001;  %Time increment as fraction of time constant
 Final_Time = 50;   %Final time value for calculation
 Last = Final_Time/DT + 1;  %Last time step
 Time = DT*[0:Last-1];  %Time vector
@@ -41,22 +40,13 @@ Xtitles = {
 'ventralF'
 'dorsalG'
 'ventralG'};
-%X = [
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)
-%zeros(1,Last)];
-%X(:,1) = Xinit;
 
-
+%X = [Xinit zeros(8,Last-1)];
 %for t = 2:Last
 %  X(:,t) = X(:,t-1) + derivative(t-1,X(:,t-1)).*DT;
 %end;
-[T,X] = ode45(@derivative,Time,Xinit);
+odeset('MaxStep',DT)
+[T,X] = ode113(@derivative,Time,Xinit,odeset('MaxStep',DT));
 X = X';
 size(X)
 figure(1), ZA = plot(Time, X(1,:), 'r', Time, X(2,:), 'b-'); set(ZA, 'LineWidth', 2);
