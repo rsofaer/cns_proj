@@ -66,7 +66,7 @@ function XT=Clione (kin,dorsalStimin,doPlot)
   %X = X';
 
   if(doPlot)
-    figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:)-150, 'b-'); set(ZA, 'LineWidth', 2);
+    figure(1), ZA = plot(Time, X(1,:), 'r', Time, X(2,:), 'b-'); set(ZA, 'LineWidth', 2);
     ylabel('V (mV'); xlabel('Time (ms)');
 
     VV = -0.9:0.01:1.5;
@@ -137,3 +137,28 @@ function xgprime = Gderivative(t,Xt,G_index, F_index)
   global TauSyn;
   xgprime = (1/TauSyn)*(-Xt(G_index) + Xt(F_index));
 end
+
+function V=Spikes(Vin)
+  Last = size(Vin)(2);
+  V = [0 (Vin(1:Last - 1) < -0.2).*(Vin(2:Last) >= -0.2)];
+end
+
+%return 0 for system not giving out of phase in sync spiking
+function Hz=analyzeSeries(XT)
+  Time = 1:size(XT)(2);
+  spikesD = Spikes(XT(2,:))
+  spikesV = Spikes(XT(3,:));
+  nSpikesD = sum(spikesD);
+  nSpikesV = sum(spikesV);
+  if(nSpikesD<3 || nSpikesV < 3 || abs(nSpikesD - nSpikesV) > 2)
+    %CPG not working
+    Hz = 0;
+  end
+  
+  plot(Time,spikesD,Time,spikesV)
+  %count spikes blue
+  %count spikes red
+  %verify that they are out of phase and the number of spikes not more than 2 off
+
+end
+
