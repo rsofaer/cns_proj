@@ -77,28 +77,7 @@ function XT=Clione (kin,dorsalStimin,doPlot)
   end
   XT = [Time; X];
 end
-% %Next lines calculate spike rate
-% Spikes = (X(1, 1:Last - 1) < -0.2).*(X(1, 2:Last) >= -0.2);
-% SpkTime = zeros(1, sum(Spikes));
-% Nspk = 1;  %Number of spike
-% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
-% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
-% end;
-% Final = length(SpkTime);
-% Rates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
-% Leng = length(Rates);
-% Red_Rate = mean(Rates(Leng/2:Leng))
-% %Next lines calculate blue spike rate
-% Spikes = (X(3, 1:Last - 1) < -0.2).*(X(3, 2:Last) >= -0.2);
-% SpkTime = zeros(1, sum(Spikes));
-% Nspk = 1;  %Number of spike
-% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
-% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
-% end;
-% Final = length(SpkTime);
-% BRates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
-% Leng = length(BRates);
-% Blue_Rate = mean(BRates(Leng/2:Leng))
+
 
 function xprime = derivative(Xt,t)
   t = t+1;
@@ -146,15 +125,37 @@ end
 %return 0 for system not giving out of phase in sync spiking
 function Hz=analyzeSeries(XT)
   Time = 1:size(XT)(2);
-  spikesD = Spikes(XT(2,:))
-  spikesV = Spikes(XT(3,:));
-  nSpikesD = sum(spikesD);
-  nSpikesV = sum(spikesV);
+  SpikesD = Spikes(XT(2,:))
+  SpikesV = Spikes(XT(3,:));
+  nSpikesD = sum(SpikesD);
+  nSpikesV = sum(SpikesV);
   if(nSpikesD<3 || nSpikesV < 3 || abs(nSpikesD - nSpikesV) > 2)
     %CPG not working
     Hz = 0;
   end
-  
+  SpikeTimesD = zeros(1, nSpikesD);
+  SpikeTimesV = zeros(1, nSpikesV);
+  nD = 0; nV = 0;
+  for T = 1:length(SpikeTimesD);  %record times of spikes in spike time arrays
+  	if SpikesD(T) == 1; SpikeTimes(nD) = T*DT; nD = nD + 1; end;
+  	if SpikesV(T) == 1; SpikeTimes(nV) = T*DT; nV = nV + 1; end;
+  end;
+  % %Next lines calculate spike rate
+% Final = length(SpkTime);
+% Rates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
+% Leng = length(Rates);
+% Red_Rate = mean(Rates(Leng/2:Leng))
+% %Next lines calculate blue spike rate
+% Spikes = (X(3, 1:Last - 1) < -0.2).*(X(3, 2:Last) >= -0.2);
+% SpkTime = zeros(1, sum(Spikes));
+% Nspk = 1;  %Number of spike
+% for T = 1:length(Spikes);  %Calculate spike rate for all interspike intervals
+% 	if Spikes(T) == 1; SpkTime(Nspk) = T*DT; Nspk = Nspk + 1; end;
+% end;
+% Final = length(SpkTime);
+% BRates = 1000./(SpkTime(2:Final) - SpkTime(1:Final - 1));
+% Leng = length(BRates);
+% Blue_Rate = mean(BRates(Leng/2:Leng))
   plot(Time,spikesD,Time,spikesV)
   %count spikes blue
   %count spikes red
