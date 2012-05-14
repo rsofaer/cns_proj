@@ -195,7 +195,7 @@ end
 function [kRange,noiseRange,HeatMap] = gridSearch()
   kRange = [0:10 12:2:30 35:5:600];
   Stim = 0.5;
-  noiseRange =  0:0.002:0.01;
+  noiseRange =  0:0.002:0.03;
   HeatMap = zeros(length(kRange),length(noiseRange));
   for kInd = 1:length(kRange)
     k = kRange(kInd);
