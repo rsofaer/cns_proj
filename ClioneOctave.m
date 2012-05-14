@@ -85,11 +85,11 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
     title(cstrcat("Clione at k=",num2str(k),", stimulus of I=",num2str(dorsalStim),
                   ", noise level of ", num2str(noiseLevel*avgNoise)," "));
 
-    %VV = -0.9:0.01:1.5;
-    %DVdt = -0.5*((1.37 + 3.67*VV + 2.51*VV.^2).*(VV - 0.55) - dorsalStim/13)./(VV + 0.92);
-    %DRdt = 1.35*VV + 1.03;
-    %figure(2), ZB = plot(VV, DVdt, 'k-', VV, DRdt, 'b-', X(1,:), X(3,:), 'r-'); axis([-1, 0.6, 0, 1]);
-    %set(ZB, 'LineWidth', 2); axis square;
+    VV = -0.9:0.01:1.5;
+    DVdt = -0.5*((1.37 + 3.67*VV + 2.51*VV.^2).*(VV - 0.55) - dorsalStim/13)./(VV + 0.92);
+    DRdt = 1.35*VV + 1.03;
+    figure(2), ZB = plot(VV, DVdt, 'k-', VV, DRdt, 'b-', X(1,:), X(3,:), 'r-'); axis([-1, 0.6, 0, 1]);
+    set(ZB, 'LineWidth', 2); axis square;
   end
   XT = [Time; X];
 end
