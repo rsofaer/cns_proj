@@ -220,8 +220,8 @@ end
 
 
 function n=nSpikes(V)
-  n=sum(Spikes(V(2)));
-  n+=sum(Spikes(V(3)));
+  n=sum(Spikes(V(2,:)));
+  n+=sum(Spikes(V(3,:)));
 end
 
 function [HeatMap] = genGridSearch(range1, range2, Stim, metric)
