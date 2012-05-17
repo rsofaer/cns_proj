@@ -72,8 +72,8 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
   %X = X';
 
   if(doPlot)
-    figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:) -150, 'b-'); set(ZA, 'LineWidth', 2);
-    ylabel('V (mV'); xlabel('Time (ms)');
+    figure(1), ZA = plot(Time, 100*X(1,:), 'r;Dorsal Motor Neuron;', Time, 100*X(2,:) -150, 'b-;Ventral Motor Neuron, offset -150;'); set(ZA, 'LineWidth', 2);
+    ylabel('V (mV)'); xlabel('Time (ms)');
     title(strcat('Clione at k=',num2str(k),', stimulus of I=',num2str(dorsalStim),', noise level: ', num2str(noiseLevel*avgNoise),' '));
 
     VV = -0.9:0.01:1.5;
