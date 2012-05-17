@@ -33,7 +33,7 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
     k = 9; % inhibitory gain
   end
 
-  I = [zeros(1,150).+dorsalStim zeros(1,Last-150)];
+  I = [zeros(1,150)+dorsalStim zeros(1,Last-150)];
   I = [I; zeros(1,Last)];
 
   Xinit = [
@@ -47,20 +47,12 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
     0; %ventralG
   ];
 
-  Xtitles = [ 
-  "dorsalV"
-  "ventralV"
-  "dorsalR"
-  "ventralR"
-  "dorsalF"
-  "ventralF"
-  "dorsalG"
-  "ventralG"];
+  Xtitles = ['dorsalV' 'ventralV' 'dorsalR' 'ventralR' 'dorsalF' 'ventralF' 'dorsalG' 'ventralG'];
   X = [Xinit zeros(8,Last-1)];
 
   %Noise amplitude is average 0.068788 without scaling
   avgNoise = 0.068788;
-  if noiseLevel != 0
+  if noiseLevel ~= 0
     Noise = [];
     for i = 1:8
       Noise = [Noise; pinkNoise(Last)];
@@ -80,10 +72,9 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
   %X = X';
 
   if(doPlot)
-    figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:).-150, 'b-'); set(ZA, 'LineWidth', 2);
+    figure(1), ZA = plot(Time, 100*X(1,:), 'r', Time, 100*X(2,:) -150, 'b-'); set(ZA, 'LineWidth', 2);
     ylabel('V (mV'); xlabel('Time (ms)');
-    title(cstrcat("Clione at k=",num2str(k),", stimulus of I=",num2str(dorsalStim),
-                  ", noise level of ", num2str(noiseLevel*avgNoise)," "));
+    title(strcat('Clione at k=',num2str(k),', stimulus of I=',num2str(dorsalStim),', noise level: ', num2str(noiseLevel*avgNoise),' '));
 
     VV = -0.9:0.01:1.5;
     DVdt = -0.5*((1.37 + 3.67*VV + 2.51*VV.^2).*(VV - 0.55) - dorsalStim/13)./(VV + 0.92);
@@ -134,7 +125,7 @@ function xgprime = Gderivative(t,Xt,G_index, F_index)
 end
 
 function V=Spikes(Vin)
-  Last = size(Vin)(2);
+  Last = length(Vin);
   V = [0 (Vin(1:Last - 1) < -0.2).*(Vin(2:Last) >= -0.2)];
 end
 
@@ -147,7 +138,7 @@ end
 
 %return 0 for system not giving out of phase in sync spiking
 function MHz=analyzeSeries(XT)
-  Time = 1:size(XT)(2);
+  Time = 1:length(XT);
   SpikesD = Spikes(XT(2,:));
   SpikesV = Spikes(XT(3,:));
   nSpikesD = sum(SpikesD);
@@ -196,18 +187,18 @@ function [kRange,noiseRange,HeatMap] = gridSearch()
   kRange = [0:10 12:2:30 35:5:600];
   Stim = 0.5;
   noiseRange =  0:0.002:0.03;
-  HeatMap = zeros(length(kRange),length(noiseRange));
-  for kInd = 1:length(kRange)
-    k = kRange(kInd);
-    for noiseInd = 1:length(noiseRange)
-      noise = noiseRange(noiseInd);
-      HeatMap(kInd,noiseInd) = analyzeSeries(Clione(k,Stim,noise,false));
-      disp(noiseRange(noiseInd));
-    end
-    disp(k);
-  end
+  HeatMap = genGridSearch(kRange,noiseRange,Stim,@analyzeSeries);
   save noiseData kRange noiseRange HeatMap
 end
+
+function [kRange,noiseRange,HeatMap] = spikeGridSearch()
+  kRange = [0:10 12:2:30 35:5:600];
+  Stim = 0;
+  noiseRange =  0:0.002:0.03;
+  HeatMap = genGridSearch(kRange,noiseRange,Stim,@nSpikes);
+  save nSpikesData kRange noiseRange HeatMap
+end
+
 
 function x=pinkNoise(Nx)
   % Nx number of samples to synthesize
@@ -226,21 +217,22 @@ function graphHeatMap(noiseRange,kRange,HeatMap)
   ylabel('k (connection strength)');
   xlabel('Noise level: mean mV');
 end
-%
-%function HeatColumn = stimSearch(k)
-%  stimRange = 0:0.1:2;
-%  HeatColumn = zeros(1,length(stimRange));
-%  for stimInd = 1:length(stimRange)
-%    HeatColumn(stimInd) = analyzeSeries(Clione(k,stimRange(stimInd),false));
-%  end
-%end
-%
-%function [kRange,stimRange,HeatMap] = pGridSearch(nProcs)
-%  % k is always the row number + 1
-%  kRange = 0:600;
-%  stimRange = 0:0.5:2;
-%  HeatMap = zeros(length(kRange),length(stimRange));
-%  for k = kRange
-%    HeatMap(k+1,:) = stimSearch(k);
-%  end
-%end
+
+
+function n=nSpikes(V)
+  n=sum(Spikes(V(2)));
+  n+=sum(Spikes(V(3)));
+end
+
+function [HeatMap] = genGridSearch(range1, range2, Stim, metric)
+  HeatMap = zeros(length(range1),length(range2));
+  for r1I = 1:length(range1)
+    r1 = range1(r1I);
+    for r2I = 1:length(range2)
+      r2 = range2(r2I);
+      HeatMap(r1I,r2I) = metric(Clione(r1,Stim,r2,false));
+      disp(r2);
+    end
+    disp(r1);
+  end
+end
