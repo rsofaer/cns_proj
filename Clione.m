@@ -57,14 +57,14 @@ function XT=Clione (kin,dorsalStimin,noiseLevel,doPlot)
     for i = 1:8
       Noise = [Noise; pinkNoise(Last)];
     end
-    Noise = Noise.*noiseLevel;
+    Noise = Noise.*noiseLevel*0.01;
   else
     Noise = zeros(8,Last);
   end
 
   % Forward Euler:
   for t = 2:Last
-    X(:,t) = X(:,t-1) + (derivative(X(:,t-1),t-1) + Noise(:,t-1)).*DT;
+    X(:,t) = X(:,t-1) + (derivative(X(:,t-1),t-1).*DT + Noise(:,t-1)) ;
   end;
 
   %The next two lines use Octave's built-in solver.

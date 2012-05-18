@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  17 MAY 2012 17:10
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2011.7.3)  17 MAY 2012 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -188,10 +188,10 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 24.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) (./Normal.tex
 Package epstopdf Info: Source file: <Normal.eps>
-(epstopdf)                    date: 2012-05-17 16:53:53
+(epstopdf)                    date: 2012-05-17 17:12:28
 (epstopdf)                    size: 85908 bytes
 (epstopdf)             Output file: <Normal-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-05-17 16:55:52
+(epstopdf)                    date: 2012-05-17 17:12:28
 (epstopdf)                    size: 46412 bytes
 (epstopdf)             Command: <repstopdf --outfile=Normal-eps-converted-to.pd
 f Normal.eps>
@@ -206,10 +206,10 @@ Package pdftex.def Info: Normal-eps-converted-to.pdf used on input line 117.
 (pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
 ) (./Rest.tex
 Package epstopdf Info: Source file: <Rest.eps>
-(epstopdf)                    date: 2012-05-17 16:55:41
+(epstopdf)                    date: 2012-05-17 17:12:28
 (epstopdf)                    size: 82732 bytes
 (epstopdf)             Output file: <Rest-eps-converted-to.pdf>
-(epstopdf)                    date: 2012-05-17 16:55:52
+(epstopdf)                    date: 2012-05-17 17:12:28
 (epstopdf)                    size: 7684 bytes
 (epstopdf)             Command: <repstopdf --outfile=Rest-eps-converted-to.pdf 
 Rest.eps>
@@ -235,38 +235,358 @@ Overfull \hbox (1.89024pt too wide) in paragraph at lines 35--37
 [1
 
 {/usr/local/texlive/2011/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Norma
-l-eps-converted-to.pdf>] AED: lastpage setting LastPage 
+l-eps-converted-to.pdf>] (./Noise.tex
+Package epstopdf Info: Source file: <Noise.eps>
+(epstopdf)                    date: 2012-05-17 17:26:07
+(epstopdf)                    size: 106093 bytes
+(epstopdf)             Output file: <Noise-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 17:26:37
+(epstopdf)                    size: 48429 bytes
+(epstopdf)             Command: <repstopdf --outfile=Noise-eps-converted-to.pdf
+ Noise.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+
+<Noise-eps-converted-to.pdf, id=14, 578.16pt x 433.62pt>
+File: Noise-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Noise-eps-converted-to.pdf>
+Package pdftex.def Info: Noise-eps-converted-to.pdf used on input line 113.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 45--57
+[]
+ []
+
 ! Undefined control sequence.
 \f@ncyolf ->\lastxmark 
                        \strut 
-l.54 \end{document}
-                   
+l.57 
+     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[2 <./Rest-eps-converted-to.pdf>] (./SofaerProject.aux) ) 
+[2 <./Rest-eps-converted-to.pdf>] (./WideHeatMap.tex
+Package epstopdf Info: Source file: <WideHeatMap.eps>
+(epstopdf)                    date: 2012-05-17 18:41:23
+(epstopdf)                    size: 109053 bytes
+(epstopdf)             Output file: <WideHeatMap-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 18:58:53
+(epstopdf)                    size: 13883 bytes
+(epstopdf)             Command: <repstopdf --outfile=WideHeatMap-eps-converted-
+to.pdf WideHeatMap.eps>
+(epstopdf)             \includegraphics on input line 131.
+Package epstopdf Info: Output file is already uptodate.
+
+<WideHeatMap-eps-converted-to.pdf, id=22, 578.16pt x 433.62pt>
+File: WideHeatMap-eps-converted-to.pdf Graphic file (type pdf)
+
+<use WideHeatMap-eps-converted-to.pdf>
+Package pdftex.def Info: WideHeatMap-eps-converted-to.pdf used on input line 13
+1.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 59--65
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.66 A
+      bove the region of out-of-phase firing, the second grid search shows t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3 <./Noise-eps-converted-to.pdf>] (./nSpikesHeatMap.tex
+Package epstopdf Info: Source file: <nSpikesHeatMap.eps>
+(epstopdf)                    date: 2012-05-17 20:16:07
+(epstopdf)                    size: 128674 bytes
+(epstopdf)             Output file: <nSpikesHeatMap-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 20:20:05
+(epstopdf)                    size: 18018 bytes
+(epstopdf)             Command: <repstopdf --outfile=nSpikesHeatMap-eps-convert
+ed-to.pdf nSpikesHeatMap.eps>
+(epstopdf)             \includegraphics on input line 125.
+Package epstopdf Info: Output file is already uptodate.
+
+<nSpikesHeatMap-eps-converted-to.pdf, id=28, 578.16pt x 433.62pt>
+File: nSpikesHeatMap-eps-converted-to.pdf Graphic file (type pdf)
+
+<use nSpikesHeatMap-eps-converted-to.pdf>
+Package pdftex.def Info: nSpikesHeatMap-eps-converted-to.pdf used on input line
+ 125.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 66--70
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.71 W
+      e can see from the two contour maps added together (so the color is es...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[4 <./WideHeatMap-eps-converted-to.pdf>] (./ComHeatMap.tex
+Package epstopdf Info: Source file: <ComHeatMap.eps>
+(epstopdf)                    date: 2012-05-17 20:19:55
+(epstopdf)                    size: 220872 bytes
+(epstopdf)             Output file: <ComHeatMap-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 20:20:06
+(epstopdf)                    size: 30295 bytes
+(epstopdf)             Command: <repstopdf --outfile=ComHeatMap-eps-converted-t
+o.pdf ComHeatMap.eps>
+(epstopdf)             \includegraphics on input line 111.
+Package epstopdf Info: Output file is already uptodate.
+
+<ComHeatMap-eps-converted-to.pdf, id=35, 578.16pt x 433.62pt>
+File: ComHeatMap-eps-converted-to.pdf Graphic file (type pdf)
+
+<use ComHeatMap-eps-converted-to.pdf>
+Package pdftex.def Info: ComHeatMap-eps-converted-to.pdf used on input line 111
+.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+) (./NormalSlightNoise.tex
+Package epstopdf Info: Source file: <NormalSlightNoise.eps>
+(epstopdf)                    date: 2012-05-17 19:35:34
+(epstopdf)                    size: 86070 bytes
+(epstopdf)             Output file: <NormalSlightNoise-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 19:47:48
+(epstopdf)                    size: 45142 bytes
+(epstopdf)             Command: <repstopdf --outfile=NormalSlightNoise-eps-conv
+erted-to.pdf NormalSlightNoise.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+
+<NormalSlightNoise-eps-converted-to.pdf, id=36, 578.16pt x 433.62pt>
+File: NormalSlightNoise-eps-converted-to.pdf Graphic file (type pdf)
+
+<use NormalSlightNoise-eps-converted-to.pdf>
+Package pdftex.def Info: NormalSlightNoise-eps-converted-to.pdf used on input l
+ine 117.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 76--79
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.79 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5 <./nSpikesHeatMap-eps-converted-to.pdf> <./ComHeatMap-eps-converted-to.pdf>]
+(./DisruptedTurningOff.tex
+Package epstopdf Info: Source file: <DisruptedTurningOff.eps>
+(epstopdf)                    date: 2012-05-17 20:49:48
+(epstopdf)                    size: 84689 bytes
+(epstopdf)             Output file: <DisruptedTurningOff-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 20:50:32
+(epstopdf)                    size: 31229 bytes
+(epstopdf)             Command: <repstopdf --outfile=DisruptedTurningOff-eps-co
+nverted-to.pdf DisruptedTurningOff.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+
+<DisruptedTurningOff-eps-converted-to.pdf, id=45, 578.16pt x 433.62pt>
+File: DisruptedTurningOff-eps-converted-to.pdf Graphic file (type pdf)
+
+<use DisruptedTurningOff-eps-converted-to.pdf>
+Package pdftex.def Info: DisruptedTurningOff-eps-converted-to.pdf used on input
+ line 117.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+) (./SupressedSpikes.tex
+Package epstopdf Info: Source file: <SupressedSpikes.eps>
+(epstopdf)                    date: 2012-05-17 20:36:32
+(epstopdf)                    size: 85922 bytes
+(epstopdf)             Output file: <SupressedSpikes-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 20:50:33
+(epstopdf)                    size: 43398 bytes
+(epstopdf)             Command: <repstopdf --outfile=SupressedSpikes-eps-conver
+ted-to.pdf SupressedSpikes.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+
+<SupressedSpikes-eps-converted-to.pdf, id=46, 578.16pt x 433.62pt>
+File: SupressedSpikes-eps-converted-to.pdf Graphic file (type pdf)
+
+<use SupressedSpikes-eps-converted-to.pdf>
+Package pdftex.def Info: SupressedSpikes-eps-converted-to.pdf used on input lin
+e 117.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 84--87
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.87 
+     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[6 <./NormalSlightNoise-eps-converted-to.pdf> <./DisruptedTurningOff-eps-conver
+ted-to.pdf>] (./SubthresholdOutOfPhase.tex
+Package epstopdf Info: Source file: <SubthresholdOutOfPhase.eps>
+(epstopdf)                    date: 2012-05-17 20:58:11
+(epstopdf)                    size: 84286 bytes
+(epstopdf)             Output file: <SubthresholdOutOfPhase-eps-converted-to.pd
+f>
+(epstopdf)                    date: 2012-05-17 21:25:27
+(epstopdf)                    size: 25446 bytes
+(epstopdf)             Command: <repstopdf --outfile=SubthresholdOutOfPhase-eps
+-converted-to.pdf SubthresholdOutOfPhase.eps>
+(epstopdf)             \includegraphics on input line 113.
+Package epstopdf Info: Output file is already uptodate.
+
+<SubthresholdOutOfPhase-eps-converted-to.pdf, id=54, 578.16pt x 433.62pt>
+File: SubthresholdOutOfPhase-eps-converted-to.pdf Graphic file (type pdf)
+
+<use SubthresholdOutOfPhase-eps-converted-to.pdf>
+Package pdftex.def Info: SubthresholdOutOfPhase-eps-converted-to.pdf used on in
+put line 113.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 88--91
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.92 A
+      t very levels of high inhibitory gain, we see a competition regime, wh...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[7 <./SupressedSpikes-eps-converted-to.pdf>] (./Competition.tex
+Package epstopdf Info: Source file: <Competition.eps>
+(epstopdf)                    date: 2012-05-17 21:31:41
+(epstopdf)                    size: 85482 bytes
+(epstopdf)             Output file: <Competition-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 22:13:31
+(epstopdf)                    size: 39914 bytes
+(epstopdf)             Command: <repstopdf --outfile=Competition-eps-converted-
+to.pdf Competition.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+
+<Competition-eps-converted-to.pdf, id=61, 578.16pt x 433.62pt>
+File: Competition-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Competition-eps-converted-to.pdf>
+Package pdftex.def Info: Competition-eps-converted-to.pdf used on input line 11
+7.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 92--95
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.96 A
+      t high levels of noise, the noise starts to overcome the inhibitory co...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[8 <./SubthresholdOutOfPhase-eps-converted-to.pdf>] (./Simultaneous.tex
+Package epstopdf Info: Source file: <Simultaneous.eps>
+(epstopdf)                    date: 2012-05-17 21:55:54
+(epstopdf)                    size: 85728 bytes
+(epstopdf)             Output file: <Simultaneous-eps-converted-to.pdf>
+(epstopdf)                    date: 2012-05-17 22:13:32
+(epstopdf)                    size: 43105 bytes
+(epstopdf)             Command: <repstopdf --outfile=Simultaneous-eps-converted
+-to.pdf Simultaneous.eps>
+(epstopdf)             \includegraphics on input line 117.
+Package epstopdf Info: Output file is already uptodate.
+
+<Simultaneous-eps-converted-to.pdf, id=67, 578.16pt x 433.62pt>
+File: Simultaneous-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Simultaneous-eps-converted-to.pdf>
+Package pdftex.def Info: Simultaneous-eps-converted-to.pdf used on input line 1
+17.
+(pdftex.def)             Requested size: 578.15858pt x 433.61894pt.
+)
+Overfull \hbox (1.89024pt too wide) in paragraph at lines 96--99
+[] 
+ []
+
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.99 \section
+             *{Conclusions}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[9 <./Competition-eps-converted-to.pdf>] AED: lastpage setting LastPage 
+! Undefined control sequence.
+\f@ncyolf ->\lastxmark 
+                       \strut 
+l.108 \end{document}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[10 <./Simultaneous-eps-converted-to.pdf>] (./SofaerProject.aux) ) 
 Here is how much of TeX's memory you used:
- 1955 strings out of 493633
- 26829 string characters out of 3143378
- 80543 words of memory out of 3000000
- 5217 multiletter control sequences out of 15000+200000
+ 2025 strings out of 493633
+ 28951 string characters out of 3143378
+ 82544 words of memory out of 3000000
+ 5257 multiletter control sequences out of 15000+200000
  10888 words of font info for 43 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 42i,10n,43p,328b,204s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/20
-11/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2011
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2011/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2011/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on SofaerProject.pdf (2 pages, 120442 bytes).
+ 42i,11n,43p,328b,204s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/local/t
+exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
+xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
+live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texli
+ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
+/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2
+011/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on SofaerProject.pdf (10 pages, 444578 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
